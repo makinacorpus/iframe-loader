@@ -3,6 +3,9 @@ module.exports = (function () {
 		phSelector: '.mkc-placeholder'
 	};
 
+	var pym          = require('pym.js');
+	var randomstring = require('randomstring');
+
 
 	function _browserContext () {
 		return (typeof window !== 'undefined');
@@ -13,7 +16,10 @@ module.exports = (function () {
 	}
 
 	function _eachPlaceholder (placeholder) {
-		console.log('p', placeholder);
+		var newID      = 'mkc-' + randomstring.generate(8);
+		placeholder.id = newID;
+
+		var pymParent = new pym.Parent(newID, 'http://www.perdu.com', {});
 	}
 
 	function _init () {
