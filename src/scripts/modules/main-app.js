@@ -1,16 +1,26 @@
 module.exports = (function () {
+	var o = {
+		phSelector: '.mkc-placeholder'
+	};
+
+
+	function _browserContext () {
+		return (typeof window !== 'undefined');
+	}
+
+	function _findPlaceholders () {
+		return document.querySelectorAll(o.phSelector);
+	}
+
+	function _eachPlaceholder (placeholder) {
+		console.log('p', placeholder);
+	}
+
 	function _init () {
-		if (typeof window === 'undefined') {
-			throw {
-				message: 'This should be run only in browser',
-				name: 'Invalid context'
-			};
-		} else if (typeof window.makinaLoader !== 'undefined') {
-			throw {
-				message: 'Makina Loader as already been loaded',
-				name: 'Already loaded'
-			};
-		}
+		console.log(_browserContext() ? 'Browser !' : 'Not in browser :(');
+
+		var placeholders = _findPlaceholders();
+		[].forEach.call(placeholders, _eachPlaceholder);
 	}
 	return {
 		init: _init
