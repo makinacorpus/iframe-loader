@@ -38,7 +38,11 @@ module.exports = (function () {
 
 		var pymParent  = new pym.Parent(newID, _getURL(dataIndex), {});
 
-		pymParent.sendMessage('dataset', JSON.stringify(placeholder.dataset));
+		pymParent.onMessage('event', function (message) {
+			if (message === 'ready') {
+				pymParent.sendMessage('data', JSON.stringify(placeholder.dataset));
+			}
+		});
 	}
 
 	function _init () {
