@@ -13,10 +13,10 @@ module.exports = (function () {
 		 */
 		var index = {
 			'2015-cantons-et-candidats': {
-				url: 'http://makinacorpus.github.io/elections/departementales-2015/app/public/'
+				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/'
 			},
 			'2015-resultats-departementales': {
-				url: 'http://makinacorpus.github.io/elections/departementales-2015/app/public/departement.html'
+				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/departement.html'
 			}
 		}
 		var result = index[dataIndex];
@@ -41,6 +41,10 @@ module.exports = (function () {
 		pymParent.onMessage('event', function (message) {
 			if (message === 'ready') {
 				pymParent.sendMessage('data', JSON.stringify(placeholder.dataset));
+
+				if (this.iframe && this.iframe.setAttribute) {
+					this.iframe.setAttribute('allowfullscreen', '');
+				}
 			}
 		});
 	}
