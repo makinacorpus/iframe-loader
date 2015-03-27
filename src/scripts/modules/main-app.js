@@ -26,6 +26,9 @@ module.exports = (function () {
 			},
 			'2015-resultats-departementales': {
 				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/departement.html'
+			},
+			'fougeres': {
+				url: 'http://cartes-elections.makina-corpus.net/fougeres/'
 			}
 		}
 		var result = index[dataIndex];
