@@ -16,7 +16,7 @@ module.exports = (function () {
 				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/'
 			},
 			'departementales-2015_regions': {
-			  url: 'http://cartes-elections.makina-corpus.net/departementales-2015/regions.html'
+				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/regions.html'
 			},
 			'departementales-2015_departements': {
 				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/departements.html'
