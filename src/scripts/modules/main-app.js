@@ -24,8 +24,7 @@ module.exports = (function () {
       return result.url;
     }
     // Defaut behavior, embed what you can.
-    // url = 'http://cartes-elections.makina-corpus.net/';
-    url = 'http://localhost/sandbox/elections/';
+    url = 'http://cartes-elections.makina-corpus.net/';
     root = dataIndex.indexOf('_') === -1;
     if (root) {
       return url + dataIndex + '/';
