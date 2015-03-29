@@ -15,24 +15,23 @@ module.exports = (function () {
 			'2015-cantons-et-candidats': {
 				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/'
 			},
-			'departementales-2015_regions': {
-				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/regions.html'
-			},
-			'departementales-2015_departements': {
-				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/departements.html'
-			},
-			'departementales-2015_cantons': {
-				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/cantons.html'
-			},
 			'2015-resultats-departementales': {
 				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/departement.html'
 			},
-			'fougeres': {
-				url: 'http://cartes-elections.makina-corpus.net/fougeres/'
-			}
 		}
 		var result = index[dataIndex];
-		return (result && result.url) ? result.url : 'about:blank';
+    if (result && result.url) {
+      return result.url;
+    }
+    // Defaut behavior, embed what you can.
+    // url = 'http://cartes-elections.makina-corpus.net/';
+    url = 'http://localhost/sandbox/elections/';
+    root = dataIndex.indexOf('_') === -1;
+    if (root) {
+      return url + dataIndex + '/';
+    } else {
+      return url + dataIndex.split('_')[0] + '/' + dataIndex.split('_')[1] + '.html';
+    }
 	}
 
 	function _browserContext () {
