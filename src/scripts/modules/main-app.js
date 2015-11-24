@@ -11,27 +11,29 @@ module.exports = (function () {
 		/**
 		 * TODO: Outsource targets table
 		 */
+
+		var hostPrefix  = 'http://cartes-elections.makina-corpus.net/';
+
 		var index = {
 			'2015-cantons-et-candidats': {
-				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/'
+				url: 'departementales-2015/app/public/'
 			},
 			'2015-resultats-departementales': {
-				url: 'http://cartes-elections.makina-corpus.net/departementales-2015/app/public/departement.html'
+				url: 'departementales-2015/app/public/departement.html'
 			},
 		}
 		var result = index[dataIndex];
 
 		if (result && result.url) {
-			return result.url;
+			return hostPrefix + result.url;
 		}
 
 		// Defaut behavior, embed what you can.
-		url  = 'http://cartes-elections.makina-corpus.net/';
-		root = dataIndex.indexOf('_') === -1;
-		if (root) {
-			return url + dataIndex + '/';
+
+		if (dataIndex.indexOf('_') === -1) {
+			return hostPrefix + dataIndex + '/';
 		} else {
-			return url + dataIndex.split('_')[0] + '/' + dataIndex.split('_')[1] + '.html';
+			return hostPrefix + dataIndex.split('_')[0] + '/' + dataIndex.split('_')[1] + '.html';
 		}
 	}
 
