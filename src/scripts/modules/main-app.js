@@ -20,17 +20,19 @@ module.exports = (function () {
 			},
 		}
 		var result = index[dataIndex];
-    if (result && result.url) {
-      return result.url;
-    }
-    // Defaut behavior, embed what you can.
-    url = 'http://cartes-elections.makina-corpus.net/';
-    root = dataIndex.indexOf('_') === -1;
-    if (root) {
-      return url + dataIndex + '/';
-    } else {
-      return url + dataIndex.split('_')[0] + '/' + dataIndex.split('_')[1] + '.html';
-    }
+
+		if (result && result.url) {
+			return result.url;
+		}
+
+		// Defaut behavior, embed what you can.
+		url  = 'http://cartes-elections.makina-corpus.net/';
+		root = dataIndex.indexOf('_') === -1;
+		if (root) {
+			return url + dataIndex + '/';
+		} else {
+			return url + dataIndex.split('_')[0] + '/' + dataIndex.split('_')[1] + '.html';
+		}
 	}
 
 	function _browserContext () {
