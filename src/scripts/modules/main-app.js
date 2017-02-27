@@ -72,7 +72,7 @@ module.exports = (function () {
 		 * TODO: Outsource targets table
 		 */
 
-		var hostPrefix  = 'http://cartes-elections.makina-corpus.net/';
+		var hostPrefix  = 'https://cartes-elections.makina-corpus.net/';
 
 		var index = {
 			'2015-cantons-et-candidats': {
